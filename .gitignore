@@ -3,3 +3,5 @@
 /node_modules/.bin/ng
 /node_modules/.bin/tsc
 /map/node_modules/
+howtobuild
+public/
