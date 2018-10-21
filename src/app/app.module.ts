@@ -4,23 +4,24 @@ import {MapModule, MapAPILoader, MarkerTypeId, IMapOptions, IBox, IMarkerIconInf
         DocumentRef, MapServiceFactory, 
         BingMapAPILoaderConfig, BingMapAPILoader, 
         GoogleMapAPILoader,  GoogleMapAPILoaderConfig
-} from 'angular-maps';
+       } from 'angular-maps';
 import { App } from './app.component';
+import { HttpHandler } from '@angular/common/http';
 
 const useBing = false;
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    useBing ? MapModule.forRootBing() : MapModule.forRootGoogle()
-  ],
-  declarations: [ App ],
-  providers: [
-    { 
-      provide: MapAPILoader, deps: [], useFactory: useBing ? BingMapServiceProviderFactory :  GoogleMapServiceProviderFactory
-    }
-  ],
-  bootstrap: [ App ]
+    imports: [
+        BrowserModule,
+        useBing ? MapModule.forRootBing() : MapModule.forRootGoogle(),
+    ],
+    declarations: [ App ],
+    providers: [
+        {
+            provide: MapAPILoader, deps: [], useFactory: useBing ? BingMapServiceProviderFactory :  GoogleMapServiceProviderFactory,
+        },
+    ],
+    bootstrap: [ App ]
 })
 export class AppModule {}
 
