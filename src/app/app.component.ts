@@ -18,17 +18,19 @@ export class App {
   _options: IMapOptions = {
     disableBirdseye: false,
     disableStreetside: false,
-    navigationBarMode: 1, 
+    navigationBarMode: 1,
     zoom: 6
   };
-  
+
+    latlons = [{ latitude: 29.714994, longitude: -95.46244}];
+
   _box: IBox = {
-    maxLatitude: 32,
-    maxLongitude: -92,
-    minLatitude: 29,
-    minLongitude: -98
+    maxLatitude: 30,
+    maxLongitude: 30,
+    minLatitude: -30,
+    minLongitude: -10
   };
-  
+
   _iconInfo: IMarkerIconInfo = {
      markerType: MarkerTypeId.CanvasMarker,
      rotation: 45,
@@ -42,16 +44,15 @@ export class App {
      color: '#f00',
      size: { width: 24, height: 24 }
 };
-  
+
   _markers: Array<ILatLong> = new Array<ILatLong>();
-  
+
   constructor() {
-    this._markers.push({ latitude: 29.714994, longitude: -95.46244})
-    for(let i:number=0; i<20; i++){
-      this._markers.push({ latitude: 29.714994 + Math.random() - Math.random(), longitude: -95.46244 + Math.random() - Math.random()});
-    }      
+    for(let i:number=0; i<this.latlons.length; i++){
+        this._markers.push(this.latlons[i])
+    }
   }
-  
+
   _click(index: number){
      console.log(`Marker ${index} says: hello world...`);
   }
