@@ -15,10 +15,11 @@ export class DataService {
 
     constructor(private http: HttpClient) { }
     getAllData(): Array<GeoItem> {
-        return Array<GeoItem>(
-            {id: 1, name: "Ryan", domain: "localhost", geoloc: {latitude: 12, longitude: 12}}//,
-            // {id: 2, name: "Google", domain: "google.com", geoloc: {latitude: -39, longitude: 70}}
-        );
+        let r: Array<GeoItem> = [];
+        r.push({id: 1, name: "Ryan", domain: "localhost", geoloc: {latitude: 12, longitude: 12}});
+        r.push({id: 2, name: "Google", domain: "google.com", geoloc: {latitude: -39, longitude: 70}});
+        r.push({id: 3, name: "BLah", domain: "blah.com", geoloc: {latitude: -19, longitude: -10}});
+        return r;
         // return this.http.get('http://localhost:3000/api/data');
     }
 }
