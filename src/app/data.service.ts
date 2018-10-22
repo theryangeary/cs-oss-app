@@ -6,6 +6,7 @@ import {MapModule, MapAPILoader, MarkerTypeId, IMapOptions, IBox, IMarkerIconInf
         BingMapAPILoaderConfig, BingMapAPILoader, 
         GoogleMapAPILoader,  GoogleMapAPILoaderConfig, ILatLong
        } from 'angular-maps';
+import {GeoItem} from './geoitem';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,8 @@ import {MapModule, MapAPILoader, MarkerTypeId, IMapOptions, IBox, IMarkerIconInf
 export class DataService {
 
     constructor(private http: HttpClient) { }
-    getAllData(): Array<ILatLong> {
-        return Array<ILatLong>({latitude: 12, longitude: 12});
+    getAllData(): Array<GeoItem> {
+        return Array<GeoItem>({id: 1, name: "Ryan", domain: "localhost", geoloc: {latitude: 12, longitude: 12}});
         // return this.http.get('http://localhost:3000/api/data');
     }
 }

@@ -8,6 +8,7 @@ import {MapModule, MapAPILoader, MarkerTypeId, IMapOptions, IBox, IMarkerIconInf
 import { HttpClient, HttpHandler} from '@angular/common/http';
 import {Http} from '@angular/http';
 import {DataService} from './data.service';
+import {GeoItem} from './geoitem';
 
 let PathData: Array<any> = null;
 
@@ -26,7 +27,7 @@ export class App {
         zoom: 6
     };
 
-    coordinates;
+    items: Array<GeoItem>;
 
     _box: IBox = {
         maxLatitude: 30,
@@ -52,11 +53,11 @@ export class App {
     _markers: Array<ILatLong> = new Array<ILatLong>();
 
     constructor(private _dataService: DataService) {
-        this.coordinates = this._dataService.getAllData();
-        console.log(this.coordinates);
-        console.log(this.coordinates[0]);
-        for(let i:number=0; i<this.coordinates.length; i++){
-            this._markers.push(this.coordinates[i])
+        this.items = this._dataService.getAllData();
+        console.log(this.items);
+        console.log(this.items[0]);
+        for(let i:number=0; i<this.items.length; i++){
+            this._markers.push(this.items[i].geoloc)
         }
     }
 
