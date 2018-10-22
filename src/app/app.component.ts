@@ -28,6 +28,7 @@ export class App {
     };
 
     items: Array<GeoItem>;
+    selectedItem: GeoItem = null;
 
     _box: IBox = {
         maxLatitude: 30,
@@ -51,6 +52,15 @@ export class App {
     };
 
     _markers: Array<ILatLong> = new Array<ILatLong>();
+
+    onSelect(item: GeoItem): void {
+        if(this.selectedItem != item) {
+            this.selectedItem = item;
+        } else {
+            this.selectedItem = null;
+        }
+        console.log("Selected item: " + this.selectedItem);
+    }
 
     constructor(private _dataService: DataService) {
         this.items = this._dataService.getAllData();

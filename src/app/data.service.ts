@@ -15,7 +15,10 @@ export class DataService {
 
     constructor(private http: HttpClient) { }
     getAllData(): Array<GeoItem> {
-        return Array<GeoItem>({id: 1, name: "Ryan", domain: "localhost", geoloc: {latitude: 12, longitude: 12}});
+        return Array<GeoItem>(
+            {id: 1, name: "Ryan", domain: "localhost", geoloc: {latitude: 12, longitude: 12}}//,
+            // {id: 2, name: "Google", domain: "google.com", geoloc: {latitude: -39, longitude: 70}}
+        );
         // return this.http.get('http://localhost:3000/api/data');
     }
 }
