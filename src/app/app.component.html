@@ -16,7 +16,7 @@
             <th>Domain</th>
         </tr>
         <div *ngFor="let i of items; let j=index">
-            <tr *ngIf="i.name === name || name === ''" (click)="onSelectedItem">
+            <tr *ngIf="i.name.toLowerCase().includes(name) || i.domain.toLowerCase().includes(name) || name === ''" (click)="onSelectedItem">
                 <td>{{i.id}}</td>
                 <td>{{i.name}}</td>
                 <td>{{i.domain}}</td>
