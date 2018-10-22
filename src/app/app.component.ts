@@ -30,6 +30,7 @@ export class App {
     items: Array<GeoItem>;
     selectedItem: GeoItem = null;
     name = '';
+    filterValue = '';
 
     _box: IBox = {
         maxLatitude: 30,
