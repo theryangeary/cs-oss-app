@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHandler } from '@angular/common/http';
-import {MapModule, MapAPILoader, MarkerTypeId, IMapOptions, IBox, IMarkerIconInfo, WindowRef, 
-        DocumentRef, MapServiceFactory, 
-        BingMapAPILoaderConfig, BingMapAPILoader, 
+import {MapModule, MapAPILoader, MarkerTypeId, IMapOptions, IBox, IMarkerIconInfo, WindowRef,
+        DocumentRef, MapServiceFactory,
+        BingMapAPILoaderConfig, BingMapAPILoader,
         GoogleMapAPILoader,  GoogleMapAPILoaderConfig, ILatLong
        } from 'angular-maps';
 import {GeoItem} from './geoitem';
