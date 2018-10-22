@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHandler } from '@angular/common/http';
-
-export interface Data {
-    lat: number,
-    long: number
-}
+import {MapModule, MapAPILoader, MarkerTypeId, IMapOptions, IBox, IMarkerIconInfo, WindowRef, 
+        DocumentRef, MapServiceFactory, 
+        BingMapAPILoaderConfig, BingMapAPILoader, 
+        GoogleMapAPILoader,  GoogleMapAPILoaderConfig, ILatLong
+       } from 'angular-maps';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +13,8 @@ export interface Data {
 export class DataService {
 
     constructor(private http: HttpClient) { }
-    getAllData(): Observable<Data[]> {
-        console.log("ACK");
-        console.log(this.http.get<Data[]>('http://localhost:3000/api/data'));
-        return this.http.get<Data[]>('http://localhost:3000/api/data');
+    getAllData(): Array<ILatLong> {
+        return Array<ILatLong>({latitude: 12, longitude: 12});
+        // return this.http.get('http://localhost:3000/api/data');
     }
 }
