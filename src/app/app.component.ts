@@ -26,7 +26,7 @@ export class App {
         zoom: 6
     };
 
-    latlons;
+    coordinates;
 
     _box: IBox = {
         maxLatitude: 30,
@@ -52,11 +52,11 @@ export class App {
     _markers: Array<ILatLong> = new Array<ILatLong>();
 
     constructor(private _dataService: DataService) {
-        this.latlons = this._dataService.getAllData();
-        console.log(this.latlons);
-        console.log(this.latlons[0]);
-        for(let i:number=0; i<this.latlons.length; i++){
-            this._markers.push(this.latlons[i])
+        this.coordinates = this._dataService.getAllData();
+        console.log(this.coordinates);
+        console.log(this.coordinates[0]);
+        for(let i:number=0; i<this.coordinates.length; i++){
+            this._markers.push(this.coordinates[i])
         }
     }
 
