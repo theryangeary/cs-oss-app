@@ -8,15 +8,18 @@
             </x-map-marker>
         </x-map>
     </div>
+    <input [(ngModel)]="name">
     <table>
         <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Domain</th>
         </tr>
-        <tr *ngFor="let i of items; let j=index" (click)="onSelectedItem">
-            <td>{{i.id}}</td>
-            <td>{{i.name}}</td>
-            <td>{{i.domain}}</td>
-        </tr>
+        <div *ngFor="let i of items; let j=index">
+            <tr *ngIf="i.name === name || name === ''" (click)="onSelectedItem">
+                <td>{{i.id}}</td>
+                <td>{{i.name}}</td>
+                <td>{{i.domain}}</td>
+            </tr>
+        </div>
     </table>

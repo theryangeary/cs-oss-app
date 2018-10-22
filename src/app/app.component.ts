@@ -29,6 +29,7 @@ export class App {
 
     items: Array<GeoItem>;
     selectedItem: GeoItem = null;
+    name = '';
 
     _box: IBox = {
         maxLatitude: 30,
@@ -62,10 +63,17 @@ export class App {
         console.log("Selected item: " + this.selectedItem);
     }
 
+    hasName(element, index, array) {
+        return element.name === "Ryan";
+    }
+
+    get domainFilter() {
+        console.log(name);
+        return this.items.filter(this.hasName);
+    }
+
     constructor(private _dataService: DataService) {
         this.items = this._dataService.getAllData();
-        console.log(this.items);
-        console.log(this.items[0]);
         for(let i:number=0; i<this.items.length; i++){
             this._markers.push(this.items[i].geoloc)
         }

@@ -1,3 +1,4 @@
+import {FormsModule} from '@angular/forms'
 import {Component, NgModule, VERSION} from '@angular/core'
 import {BrowserModule} from '@angular/platform-browser'
 import {MapModule, MapAPILoader, MarkerTypeId, IMapOptions, IBox, IMarkerIconInfo, WindowRef,   
@@ -14,6 +15,7 @@ const useBing = false;
     imports: [
         BrowserModule,
         useBing ? MapModule.forRootBing() : MapModule.forRootGoogle(),
+        FormsModule
     ],
     declarations: [ App ],
     providers: [
