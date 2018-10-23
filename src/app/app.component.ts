@@ -23,10 +23,12 @@ export class App {
     constructor(private _dataService: DataService) {
         this.items = [];
         this.getItems();
+        this.filteredItems = this.items;
+        this.filter();
     }
 
     ngOnInit() {
-        this.constructMarkers(this.filterValue);
+        // this.constructMarkers(this.filterValue);
     }
 
     _markerTypeId = MarkerTypeId;
@@ -38,6 +40,7 @@ export class App {
     };
 
     items: GeoItem[];
+    filteredItems: GeoItem[];
     selectedItem: GeoItem = null;
     name = '';
     filterValue = '';
@@ -76,29 +79,38 @@ export class App {
 
     searchMatches(item: GeoItem, searchq) {
         searchq = searchq.toLowerCase();
-        console.log(item.domain.toLowerCase().includes(searchq));
         return item.domain.toLowerCase().includes(searchq) || searchq === '';
     }
 
     filter() {
-        console.log(this.filterValue);
+        var d = new Date();
+        this.filteredItems.length = 0;
         this._markers.length = 0;
-        this.constructMarkers(this.filterValue);
-        console.log(this._markers);
-        // return this.items.filter(this.hasName);
-    }
-
-    constructMarkers(filterValue) {
-        for(let i:number=0; i<this.items.length; i++){
-            if (this.searchMatches(this.items[i], filterValue)) {
+        for(let i: number = 0; i<this.items.length; i++) {
+            if (this.searchMatches(this.items[i], this.filterValue)) {
+                this.filteredItems.push(this.items[i]);
+                // console.log(d.getTime() + this.items[i].domain);
                 this._markers.push(this.items[i].geoloc);
             }
         }
+        // this._markers.length = 0;
+        // this.constructMarkers(this.filterValue);
+        // return this.items.filter(this.hasName);
     }
+
+    // constructMarkers(filterValue) {
+    //     console.log(filterValue);
+    //     for(let i:number=0; i<this.items.length; i++){
+    //         if (this.searchMatches(this.items[i], filterValue)) {
+    //             console.log(this.items[i].domain);
+    //             this._markers.push(this.items[i].geoloc);
+    //         }
+    //     }
+    // }
 
     getItems(): void {
         this._dataService.getAllData()
-            .subscribe(items => this.items = items);
+            .subscribe(items => this.items = items)
     }
 
 

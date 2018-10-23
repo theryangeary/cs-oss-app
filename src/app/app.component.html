@@ -8,17 +8,17 @@
             </x-map-marker>
         </x-map>
     </div>
-    <input [(ngModel)]="filterValue" (keyup)="filter()">
+    <!-- <input [(ngModel)]="filterValue" (keyup)="filter()"><button (click)="filter()">Submit</button> -->
+    <input [(ngModel)]="filterValue" (keyup.enter)="filter()"><button (click)="filter()">Submit</button>
     <table>
         <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Domain</th>
         </tr>
-        <div *ngFor="let i of items; let j=index">
+        <div *ngFor="let i of filteredItems; let j=index">
             <tr *ngIf="searchMatches(i, filterValue)" (click)="onSelectedItem">
                 <td>{{i.id}}</td>
-                <td>{{i.name}}</td>
                 <td>{{i.domain}}</td>
             </tr>
         </div>

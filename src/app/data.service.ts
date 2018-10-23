@@ -28,7 +28,7 @@ export class DataService {
         // return r;
         return this.http.get<GeoItem[]>('api/data')
             .pipe(
-                tap(items => console.log('fetched items'))
+                tap(items => console.log('fetched items')),
                 catchError(this.handleError('getAllData', []))
             );
     }
