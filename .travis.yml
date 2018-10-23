@@ -3,7 +3,6 @@ node_js:
   - "8"
 
 install:
-  - pwd
-  - mkdir theryangeary/cs-oss-app/public
+  - mkdir public
   - npm install
   - ng build --output-path=theryangeary/cs-oss-app/public/
