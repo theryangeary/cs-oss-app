@@ -64,20 +64,34 @@ export class App {
         console.log("Selected item: " + this.selectedItem);
     }
 
-    hasName(element, index, array) {
-        return element.name === "Ryan";
+    searchMatches(item: GeoItem, searchq) {
+        searchq = searchq.toLowerCase();
+        console.log("Searching: " + item.name + " for " + searchq);
+        console.log(item.name.toLowerCase().includes(searchq));
+        console.log(item.domain.toLowerCase().includes(searchq));
+        console.log(item.name.toLowerCase());
+        return item.name.toLowerCase().includes(searchq) || item.domain.toLowerCase().includes(searchq) || searchq === '';
     }
 
-    get domainFilter() {
-        console.log(name);
-        return this.items.filter(this.hasName);
+    filter() {
+        console.log(this.filterValue);
+        this._markers.length = 0;
+        this.constructMarkers(this.filterValue);
+        console.log(this._markers);
+        // return this.items.filter(this.hasName);
+    }
+
+    constructMarkers(filterValue) {
+        for(let i:number=0; i<this.items.length; i++){
+            if (this.searchMatches(this.items[i], filterValue)) {
+                this._markers.push(this.items[i].geoloc);
+            }
+        }
     }
 
     constructor(private _dataService: DataService) {
         this.items = this._dataService.getAllData();
-        for(let i:number=0; i<this.items.length; i++){
-            this._markers.push(this.items[i].geoloc)
-        }
+        this.constructMarkers(this.filterValue);
     }
 
     _click(index: number){

@@ -16,7 +16,7 @@
             <th>Domain</th>
         </tr>
         <div *ngFor="let i of items; let j=index">
-            <tr *ngIf="i.name.toLowerCase().includes(filterValue) || i.domain.toLowerCase().includes(filterValue) || filterValue === ''" (click)="onSelectedItem">
+            <tr *ngIf="searchMatches(i, filterValue)" (click)="onSelectedItem">
                 <td>{{i.id}}</td>
                 <td>{{i.name}}</td>
                 <td>{{i.domain}}</td>
