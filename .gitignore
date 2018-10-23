@@ -7,3 +7,5 @@ howtobuild
 public/
 threat-visualizer/
 /src/app/.data.service.ts.swp
+/.data.json.swp
+/data.bak.json
