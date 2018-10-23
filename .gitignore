@@ -10,3 +10,4 @@ threat-visualizer/
 /.data.json.swp
 /data.bak.json
 /data1000.json
+/.travis.yml.swp
