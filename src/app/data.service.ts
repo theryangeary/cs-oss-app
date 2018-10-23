@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
-import { HttpClient, HttpHeaders, HttpHandler } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {MapModule, MapAPILoader, MarkerTypeId, IMapOptions, IBox, IMarkerIconInfo, WindowRef,
         DocumentRef, MapServiceFactory,
         BingMapAPILoaderConfig, BingMapAPILoader,
@@ -32,13 +32,12 @@ export class DataService {
                 catchError(this.handleError('getAllData', []))
             );
     }
+
     private handleError<T> (operation = 'operation', result?: T) {
         return (error: any): Observable<T> => {
 
-            // TODO: send the error to remote logging infrastructure
             console.error(error); // log to console instead
 
-            // TODO: better job of transforming error for user consumption
             console.log(`${operation} failed: ${error.message}`);
 
             // Let the app keep running by returning an empty result.

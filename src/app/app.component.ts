@@ -17,7 +17,7 @@ let PathData: Array<any> = null;
     selector: 'my-app',
     templateUrl: './app.component.html',
     styleUrls: [ './app.component.css' ],
-    providers: [DataService, HttpClient, HttpHandler]
+    providers: [DataService, HttpClient]
 })
 export class App {
     _markerTypeId = MarkerTypeId;
