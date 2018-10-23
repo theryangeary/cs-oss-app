@@ -76,11 +76,8 @@ export class App {
 
     searchMatches(item: GeoItem, searchq) {
         searchq = searchq.toLowerCase();
-        console.log("Searching: " + item.name + " for " + searchq);
-        console.log(item.name.toLowerCase().includes(searchq));
         console.log(item.domain.toLowerCase().includes(searchq));
-        console.log(item.name.toLowerCase());
-        return item.name.toLowerCase().includes(searchq) || item.domain.toLowerCase().includes(searchq) || searchq === '';
+        return item.domain.toLowerCase().includes(searchq) || searchq === '';
     }
 
     filter() {
