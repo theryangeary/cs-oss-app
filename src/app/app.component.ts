@@ -20,10 +20,12 @@ let PathData: Array<any> = null;
     providers: [DataService, HttpClient]
 })
 export class App {
-    constructor(private _dataService: DataService) { }
+    constructor(private _dataService: DataService) {
+        this.items = [];
+        this.getItems();
+    }
 
     ngOnInit() {
-        this.getItems();
         this.constructMarkers(this.filterValue);
     }
 
