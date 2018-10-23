@@ -1,4 +1,4 @@
-import {Component, NgModule, VERSION} from '@angular/core'
+import {Component, NgModule, VERSION, OnInit} from '@angular/core'
 import {BrowserModule} from '@angular/platform-browser'
 import {MapModule, MapAPILoader, MarkerTypeId, IMapOptions, IBox, IMarkerIconInfo, WindowRef, 
         DocumentRef, MapServiceFactory, 
@@ -8,6 +8,7 @@ import {MapModule, MapAPILoader, MarkerTypeId, IMapOptions, IBox, IMarkerIconInf
 import { HttpClient, HttpHandler} from '@angular/common/http';
 import {Http} from '@angular/http';
 import {DataService} from './data.service';
+import {Observable} from 'rxjs';
 import {GeoItem} from './geoitem';
 
 let PathData: Array<any> = null;
@@ -27,7 +28,7 @@ export class App {
         zoom: 6
     };
 
-    items: Array<GeoItem>;
+    items: GeoItem[];
     selectedItem: GeoItem = null;
     name = '';
     filterValue = '';
@@ -89,8 +90,17 @@ export class App {
         }
     }
 
-    constructor(private _dataService: DataService) {
-        this.items = this._dataService.getAllData();
+    getItems(): void {
+        this._dataService.getAllData()
+            .subscribe(items => console.log(items));
+        console.log("It should exist now");
+    }
+
+    constructor(private _dataService: DataService) { }
+
+    ngOnInit() {
+        this.getItems();
+        console.log(this.items);
         this.constructMarkers(this.filterValue);
     }
 

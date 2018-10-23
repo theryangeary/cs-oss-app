@@ -7,7 +7,7 @@ import {MapModule, MapAPILoader, MarkerTypeId, IMapOptions, IBox, IMarkerIconInf
         GoogleMapAPILoader,  GoogleMapAPILoaderConfig
        } from 'angular-maps';
 import { App } from './app.component';
-import { HttpHandler } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
 
 const useBing = false;
 
@@ -15,7 +15,8 @@ const useBing = false;
     imports: [
         BrowserModule,
         useBing ? MapModule.forRootBing() : MapModule.forRootGoogle(),
-        FormsModule
+        FormsModule,
+        HttpClientModule
     ],
     declarations: [ App ],
     providers: [
