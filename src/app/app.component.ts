@@ -20,6 +20,13 @@ let PathData: Array<any> = null;
     providers: [DataService, HttpClient]
 })
 export class App {
+    constructor(private _dataService: DataService) { }
+
+    ngOnInit() {
+        this.getItems();
+        this.constructMarkers(this.filterValue);
+    }
+
     _markerTypeId = MarkerTypeId;
     _options: IMapOptions = {
         disableBirdseye: false,
@@ -92,17 +99,9 @@ export class App {
 
     getItems(): void {
         this._dataService.getAllData()
-            .subscribe(items => console.log(items));
-        console.log("It should exist now");
+            .subscribe(items => this.items = items);
     }
 
-    constructor(private _dataService: DataService) { }
-
-    ngOnInit() {
-        this.getItems();
-        console.log(this.items);
-        this.constructMarkers(this.filterValue);
-    }
 
     _click(index: number){
         console.log(`Marker ${index} says: hello world...`);
