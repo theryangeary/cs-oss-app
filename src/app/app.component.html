@@ -2,7 +2,7 @@
 <div style="height: 700px">
     <x-map #xmap [Options]="_options" [Box]="_box">
         <ng-container *ngFor="let m of items; let i=index">
-            <x-map-marker *ngIf="searchMatchesCheckEnd(m, filterValue, i)" [Latitude]="m.geoloc.latitude" [Longitude]="m.geoloc.longitude" [Title]="'My Marker ' + i.toString()" [IconInfo]="_iconInfo">
+            <x-map-marker *ngIf="searchMatches(m, filterValue)" [Latitude]="m.geoloc.latitude" [Longitude]="m.geoloc.longitude" [Title]="'My Marker ' + i.toString()" [IconInfo]="_iconInfo">
                 <x-info-box [DisableAutoPan]="true" [Title]="m.id + ': '" [Description]="m.domain">
                     <x-info-box-action [Label]="'Click Me'" (ActionClicked)="_click(i)"></x-info-box-action>
                 </x-info-box>
@@ -11,8 +11,8 @@
     </x-map>
 </div>
 
-<input [(ngModel)]="filterValue" (keyup)="filter()"><button (click)="filter()">Submit</button><span *ngIf="getIsLoading()" >Loading {{loadIndex}} of {{items.length}}</span>
-
+<span>Filter</span><input [(ngModel)]="filterValue"> <!-- (keyup)="filter()"><button (click)="filter()">Submit</button>
+                                  -->
 <table>
     <tr>
         <th>Rank</th>

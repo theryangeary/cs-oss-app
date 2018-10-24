@@ -88,9 +88,9 @@ export class App {
         return item.domain.toLowerCase().includes(searchq) || searchq === '';
     }
 
-    filter() {
-        this.isLoading = true;
-    }
+    // filter() {
+    //     this.isLoading = true;
+    // }
     // filter() {
     //     this.filteredItems.length = 0;
     //     this._markers.length = 0;
