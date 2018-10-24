@@ -23,11 +23,7 @@ export class App {
     constructor(private _dataService: DataService) {
         this.items = [];
         this.getItems();
-        // console.log(this.items);
-        // this.filteredItems = this.items;
         this.filterValue = '';
-        // console.log("Gonna filter" + this.items.length + "values");
-        // this.filter();
         this.title = 'Where Top Domains Live';
     }
 
@@ -39,17 +35,13 @@ export class App {
         disableBirdseye: false,
         disableStreetside: false,
         navigationBarMode: 1,
-        zoom: 6
+        zoom: 1
     };
 
     items: GeoItem[];
-    // filteredItems: GeoItem[];
     selectedItem: GeoItem = null;
-    // name = '';
     filterValue = '';
     title: string;
-    isLoading: boolean = true;
-    loadIndex: number = 0;
 
     _box: IBox = {
         maxLatitude: 30,
@@ -72,36 +64,10 @@ export class App {
         size: { width: 24, height: 24 }
     };
 
-    // _markers: Array<GeoItem> = new Array<GeoItem>();
-
-    onSelect(item: GeoItem): void {
-        if(this.selectedItem != item) {
-            this.selectedItem = item;
-        } else {
-            this.selectedItem = null;
-        }
-        console.log("Selected item: " + this.selectedItem);
-    }
-
     searchMatches(item: GeoItem, searchq) {
         searchq = searchq.toLowerCase();
         return item.domain.toLowerCase().includes(searchq) || searchq === '';
     }
-
-    // filter() {
-    //     this.isLoading = true;
-    // }
-    // filter() {
-    //     this.filteredItems.length = 0;
-    //     this._markers.length = 0;
-    //     for(let i: number = 0; i<this.items.length; i++) {
-    //         console.log(this.items[i].domain);
-    //         if (this.searchMatches(this.items[i], this.filterValue)) {
-    //             this.filteredItems.push(this.items[i]);
-    //             this._markers.push(this.items[i]);
-    //         }
-    //     }
-    // }
 
     getItems(): void {
         this._dataService.getAllData()
@@ -110,8 +76,4 @@ export class App {
             });
     }
 
-
-    _click(index: number){
-        console.log(`Marker ${index} says: hello world...`);
-    }
 }

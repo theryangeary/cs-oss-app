@@ -4,7 +4,6 @@
         <ng-container *ngFor="let m of items; let i=index">
             <x-map-marker *ngIf="searchMatches(m, filterValue)" [Latitude]="m.geoloc.latitude" [Longitude]="m.geoloc.longitude" [Title]="'My Marker ' + i.toString()" [IconInfo]="_iconInfo">
                 <x-info-box [DisableAutoPan]="true" [Title]="m.id + ': '" [Description]="m.domain">
-                    <x-info-box-action [Label]="'Click Me'" (ActionClicked)="_click(i)"></x-info-box-action>
                 </x-info-box>
             </x-map-marker>
         </ng-container>
@@ -21,7 +20,7 @@
         <th>Hostname</th>
     </tr>
     <ng-container *ngFor="let i of items; let j=index">
-        <tr *ngIf="searchMatches(i, filterValue)" (click)="onSelectedItem">
+        <tr *ngIf="searchMatches(i, filterValue)" >
             <td>{{i.id}}</td>
             <td>{{i.domain}}</td>
             <td>{{i.geoloc.latitude}}, {{i.geoloc.longitude}}</td>
