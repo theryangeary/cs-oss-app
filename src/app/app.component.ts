@@ -119,7 +119,7 @@ export class App {
         this._dataService.getAllData()
             .subscribe(items => {
                 this.items = items;
-            )
+            });
     }
 
 
