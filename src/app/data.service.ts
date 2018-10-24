@@ -21,12 +21,7 @@ export class DataService {
 
     constructor(private http: HttpClient) { }
     getAllData(): Observable<GeoItem[]> {
-        // let r: Array<GeoItem> = [];
-        // r.push({id: 1, name: "Ryan", domain: "localhost", geoloc: {latitude: 12, longitude: 12}});
-        // r.push({id: 2, name: "Google", domain: "google.com", geoloc: {latitude: -39, longitude: 70}});
-        // r.push({id: 3, name: "BLah", domain: "blah.com", geoloc: {latitude: -19, longitude: -10}});
-        // return r;
-        return this.http.get<GeoItem[]>('api/data')
+        return this.http.get<GeoItem[]>('localhost:3000/api/data')
             .pipe(
                 tap(items => console.log('fetched items')),
                 catchError(this.handleError('getAllData', []))
