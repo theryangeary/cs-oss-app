@@ -83,18 +83,6 @@ export class App {
         console.log("Selected item: " + this.selectedItem);
     }
 
-    getIsLoading() {
-        return this.isLoading;
-    }
-
-    searchMatchesCheckEnd(item: GeoItem, searchq, i) {
-        this.loadIndex = i;
-        if (i === this.items.length - 1) {
-            this.isLoading = false;
-        }
-        this.searchMatches(item, searchq);
-    }
-
     searchMatches(item: GeoItem, searchq) {
         searchq = searchq.toLowerCase();
         return item.domain.toLowerCase().includes(searchq) || searchq === '';
