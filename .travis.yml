@@ -25,5 +25,4 @@ install:
 
 script:
   - node index.js &
-  - npm run test -- --watch=false --progress=false
 
