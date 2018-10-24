@@ -14,14 +14,15 @@ const httpOptions = {
 };
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class DataService {
     r;
 
     constructor(private http: HttpClient) { }
+
     getAllData(): Observable<GeoItem[]> {
-        return this.http.get<GeoItem[]>('localhost:3000/api/data')
+        return this.http.get<GeoItem[]>('http://localhost:3000/api/data')
             .pipe(
                 tap(items => console.log('fetched items')),
                 catchError(this.handleError('getAllData', []))
