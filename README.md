@@ -1,5 +1,5 @@
 # Where Top Domains Live
-## An Angular app demonstrating where on Earth the top ~500 domains from [Probably Whitelist of the Top 1 Million Sites Resolved by Cisco Umbrella](https://s3-us-west-1.amazonaws.com/umbrella-static/index.html)
+## An Angular app demonstrating where on Earth the top ~500 domains from [Probably Whitelist of the Top 1 Million Sites Resolved by Cisco Umbrella](https://s3-us-west-1.amazonaws.com/umbrella-static/index.html) are
 I decided to build this app because I think that it's interesting to note the patterns in hosting location. Most of the top sites are hosted in the US, Europe, and China, with a few others scattered between. The Netherlands is particular popular as far as European countries go. Filtering for just domains that include 'google' shows that all google domains (in Cisco's top 500) are hosted at two locations in the West/Midwest, even google.fr, google.ru, google.de, etc.
 ## Installation
 The app is run completely from a docker image, so you'll first need to install docker following the guide for your operating system [here](https://docs.docker.com/install/).
