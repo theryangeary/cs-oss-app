@@ -15,7 +15,7 @@ Then change into that directory:
 ```$ cd cs-oss-app```
 
 Now you need to build your docker image, like so:
-```$ docker build -t theryangeary/cs-oss-app:0.1.0 .**
+```$ docker build -t theryangeary/cs-oss-app:0.1.0 .**```
 **Don't forget the "." at the end!**
 Grab some coffee, this will take a minute or two.
 
