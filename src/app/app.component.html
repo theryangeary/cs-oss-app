@@ -19,7 +19,7 @@
         <th>Coordinates</th>
         <th>Hostname</th>
     </tr>
-    <ng-container *ngFor="let i of items; let j=index">
+    <ng-container *ngFor="let i of items">
         <tr *ngIf="searchMatches(i, filterValue)" >
             <td>{{i.id}}</td>
             <td>{{i.domain}}</td>
