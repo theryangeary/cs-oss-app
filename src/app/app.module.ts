@@ -8,8 +8,10 @@ import {MapModule, MapAPILoader, MarkerTypeId, IMapOptions, IBox, IMarkerIconInf
        } from 'angular-maps';
 import { App } from './app.component';
 import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
+import {enableProdMode} from '@angular/core';
 
 const useBing = false;
+enableProdMode();
 
 @NgModule({
     imports: [
