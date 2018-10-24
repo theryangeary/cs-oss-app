@@ -25,6 +25,8 @@ import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@ang
 
 let comp:    App;
 let fixture: ComponentFixture<App>;
+let service: DataService;
+let http: HttpClient;
 
 describe('App & AppModule', () => {
     beforeAll(() => {
@@ -41,6 +43,7 @@ describe('App & AppModule', () => {
                 fixture = TestBed.createComponent(App);
                 comp = fixture.componentInstance;
             });
+        service = new DataService(http);
     }));
 
     it('should have title \'Where Top Domains Live\'', function() {
@@ -48,4 +51,16 @@ describe('App & AppModule', () => {
         const app = fixture.debugElement.componentInstance;
         expect(app.title).toEqual('Where Top Domains Live');
     });
+
+    it('should have empty filterValue', function() {
+        const fixture = TestBed.createComponent(App);
+        const app = fixture.debugElement.componentInstance;
+        expect(app.filterValue).toEqual('');
+    })
+
+    it('should load json data', function() {
+        const fixture = TestBed.createComponent(App);
+        const app = fixture.debugElement.componentInstance;
+        expect(app.items.length > 0).toBeTruthy;
+    })
 })

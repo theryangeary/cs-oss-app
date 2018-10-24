@@ -24,7 +24,7 @@ export class DataService {
     getAllData(): Observable<GeoItem[]> {
         return this.http.get<GeoItem[]>('http://localhost:3000/api/data')
             .pipe(
-                tap(items => function(){}),
+                tap(items => function() {}),
                 catchError(this.handleError('getAllData', []))
             );
     }
