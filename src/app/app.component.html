@@ -8,8 +8,9 @@
             </x-map-marker>
         </x-map>
     </div>
-    <!-- <input [(ngModel)]="filterValue" (keyup)="filter()"><button (click)="filter()">Submit</button> -->
+
     <input [(ngModel)]="filterValue" (keyup.enter)="filter()"><button (click)="filter()">Submit</button>
+
     <table>
         <tr>
             <th>ID</th>

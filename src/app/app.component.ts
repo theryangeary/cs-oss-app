@@ -25,6 +25,7 @@ export class App {
         this.getItems();
         this.filteredItems = this.items;
         this.filter();
+        this.title = 'Where Top Domain\s Live';
     }
 
     ngOnInit() {
@@ -44,6 +45,7 @@ export class App {
     selectedItem: GeoItem = null;
     name = '';
     filterValue = '';
+    title: string;
 
     _box: IBox = {
         maxLatitude: 30,
