@@ -65,4 +65,20 @@ describe('App & AppModule', () => {
         expect(app.items.length > 0).toBeTruthy;
     })
 
+    it('should have <span> with "Filter"', () => {
+        const spanElement: HTMLElement = fixture.nativeElement;
+        const span = spanElement.querySelector('span');
+        expect(span.textContent).toEqual('Filter');
+    });
+
+    it('should have <th> series with "Rank", "Domain", "Coordinates", and "Hostname"', () => {
+        const fixture = TestBed.createComponent(App);
+        const thelement: HTMLElement = fixture.nativeElement;
+        const th = thelement.querySelectorAll('th');
+        expect(th[0].textContent).toEqual('Rank');
+        expect(th[1].textContent).toEqual('Domain');
+        expect(th[2].textContent).toEqual('Coordinates');
+        expect(th[3].textContent).toEqual('Hostname');
+    });
+
 })
