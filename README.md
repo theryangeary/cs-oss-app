@@ -43,4 +43,4 @@ $ docker run -it -p 3000:3000 theryangeary/cs-oss-app:0.1.0
 ```
 And you should be able to access it by opening your browser and navigating to [localhost:3000](http://localhost:3000). Make sure that you don't have tracking protection enabled or the map will not load. 
 
-After giving Google Maps a minute to load, you'll see markers showing the locations of the domains, which are also listed below in a table. You can click on a marker to see the domain name, of use the filter to only show markers with domains matching your search.
+After giving Google Maps a moment to load, you can drag around and zoom in and out on the map. You'll see markers showing the locations of the domains, which are also listed below in a table. You can click on a marker to see the domain name, of use the filter to only show markers with domains matching your search.
