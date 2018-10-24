@@ -32,7 +32,10 @@ describe('DataService', () => {
     });
 
     it('should have google.com as first domain', () => {
-        console.log(itemList);
         expect(itemList[0].domain).toEqual('google.com');
+    });
+
+    it('should have leagueoflegends.com as last domain', () => {
+        expect(itemList[itemList.length-1].domain).toEqual('leagueoflegends.com');
     });
 });

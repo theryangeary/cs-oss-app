@@ -27,6 +27,7 @@ let comp:    App;
 let fixture: ComponentFixture<App>;
 let service: DataService;
 let http: HttpClient;
+let itemlist: Array<GeoItem>;
 
 describe('App & AppModule', () => {
     beforeAll(() => {
@@ -63,4 +64,5 @@ describe('App & AppModule', () => {
         const app = fixture.debugElement.componentInstance;
         expect(app.items.length > 0).toBeTruthy;
     })
+
 })
