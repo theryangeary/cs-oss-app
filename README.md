@@ -5,22 +5,32 @@ I decided to build this app because I think that it's interesting to note the pa
 The app is run completely from a docker image, so you'll first need to install docker following the guide for your operating system [here](https://docs.docker.com/install/).
 
 Once that's done you can check that docker is installed correctly by running
-```$ docker run hello-world```
+```
+$ docker run hello-world
+```
 You may need to use **sudo** when running docker commands throughout this guide, depending on your environment.
 
 If docker runs hello-world then you're ready to go. Let's get started. Clone this repository:
-```$ git clone https://github.com/theryangeary/cs-oss-app```
+```
+$ git clone https://github.com/theryangeary/cs-oss-app
+```
 
 Then change into that directory:
-```$ cd cs-oss-app```
+```
+$ cd cs-oss-app
+```
 
 Now you need to build your docker image, like so:
-```$ docker build -t theryangeary/cs-oss-app:0.1.0 .```
+```
+$ docker build -t theryangeary/cs-oss-app:0.1.0 .
+```
 **Don't forget the "." at the end!**
 Grab some coffee, this will take a minute or two.
 
 You can check that it succeeded by running
-```$ docker images```
+```
+$ docker images
+```
 and it should output something like:
 ```
 $ docker images
@@ -29,6 +39,6 @@ theryangeary/cs-oss-app   0.1.0               d2b0eea449aa        About an hour 
 ```
 Once it completes, you are all ready to run this app. Just do:
 ```$ docker run -it -p 3000:3000 theryangeary/cs-oss-app:0.1.0```
-And you should be able to access it by opening your browser and navigating to [localhost:3000](http://localhost:3000)
+And you should be able to access it by opening your browser and navigating to [localhost:3000](http://localhost:3000). Make sure that you don't have tracking protection enabled or the map will not load. 
 
 After giving Google Maps a minute to load, you'll see markers showing the locations of the domains, which are also listed below in a table. You can click on a marker to see the domain name, of use the filter to only show markers with domains matching your search.
