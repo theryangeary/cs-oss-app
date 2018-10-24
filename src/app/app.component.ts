@@ -24,7 +24,6 @@ export class App {
         this.items = [];
         this.getItems();
         this.filteredItems = this.items;
-        this.filter();
         this.title = 'Where Top Domain\s Live';
     }
 
