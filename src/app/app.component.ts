@@ -67,7 +67,7 @@ export class App {
         size: { width: 24, height: 24 }
     };
 
-    _markers: Array<ILatLong> = new Array<ILatLong>();
+    _markers: Array<GeoItem> = new Array<GeoItem>();
 
     onSelect(item: GeoItem): void {
         if(this.selectedItem != item) {
@@ -89,7 +89,7 @@ export class App {
         for(let i: number = 0; i<this.items.length; i++) {
             if (this.searchMatches(this.items[i], this.filterValue)) {
                 this.filteredItems.push(this.items[i]);
-                this._markers.push(this.items[i].geoloc);
+                this._markers.push(this.items[i]);
             }
         }
     }
