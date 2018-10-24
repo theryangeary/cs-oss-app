@@ -13,15 +13,17 @@
 
     <table>
         <tr>
-            <th>ID</th>
-            <th>Name</th>
+            <th>Rank</th>
             <th>Domain</th>
+            <th>Coordinates</th>
+            <th>Hostname</th>
         </tr>
         <ng-container *ngFor="let i of filteredItems; let j=index">
             <tr *ngIf="searchMatches(i, filterValue)" (click)="onSelectedItem">
                 <td>{{i.id}}</td>
                 <td>{{i.domain}}</td>
                 <td>{{i.geoloc.latitude}}, {{i.geoloc.longitude}}</td>
+                <td>{{i.hostname}}</td>
             </tr>
         </ng-container>
     </table>
