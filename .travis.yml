@@ -24,6 +24,6 @@ install:
   - ng build --output-path=public/
 
 script:
-  - npm start
+  - node index.js
   - npm run test -- --watch=false --progress=false
 
