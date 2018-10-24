@@ -85,30 +85,15 @@ export class App {
     }
 
     filter() {
-        var d = new Date();
         this.filteredItems.length = 0;
         this._markers.length = 0;
         for(let i: number = 0; i<this.items.length; i++) {
             if (this.searchMatches(this.items[i], this.filterValue)) {
                 this.filteredItems.push(this.items[i]);
-                // console.log(d.getTime() + this.items[i].domain);
                 this._markers.push(this.items[i].geoloc);
             }
         }
-        // this._markers.length = 0;
-        // this.constructMarkers(this.filterValue);
-        // return this.items.filter(this.hasName);
     }
-
-    // constructMarkers(filterValue) {
-    //     console.log(filterValue);
-    //     for(let i:number=0; i<this.items.length; i++){
-    //         if (this.searchMatches(this.items[i], filterValue)) {
-    //             console.log(this.items[i].domain);
-    //             this._markers.push(this.items[i].geoloc);
-    //         }
-    //     }
-    // }
 
     getItems(): void {
         this._dataService.getAllData()
