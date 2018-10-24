@@ -17,10 +17,11 @@
             <th>Name</th>
             <th>Domain</th>
         </tr>
-        <div *ngFor="let i of filteredItems; let j=index">
+        <ng-container *ngFor="let i of filteredItems; let j=index">
             <tr *ngIf="searchMatches(i, filterValue)" (click)="onSelectedItem">
                 <td>{{i.id}}</td>
                 <td>{{i.domain}}</td>
+                <td>{{i.geoloc.latitude}}, {{i.geoloc.longitude}}</td>
             </tr>
-        </div>
+        </ng-container>
     </table>
