@@ -30,3 +30,5 @@ theryangeary/cs-oss-app   0.1.0               d2b0eea449aa        About an hour 
 Once it completes, you are all ready to run this app. Just do:
 ```$ docker run -it -p 3000:3000 theryangeary/cs-oss-app:0.1.0```
 And you should be able to access it by opening your browser and navigating to [localhost:3000](http://localhost:3000)
+
+After giving Google Maps a minute to load, you'll see markers showing the locations of the domains, which are also listed below in a table. You can click on a marker to see the domain name, of use the filter to only show markers with domains matching your search.
