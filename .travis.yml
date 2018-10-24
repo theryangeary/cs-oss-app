@@ -19,6 +19,5 @@ install:
   - ng build --output-path=public/
 
 script:
-  - npm run test -- --single-run --no-progress --browser=ChromeHeadlessCI
-  - npm run e2e -- --no-progress --config=protractor-ci.conf.js
+  - npm run test -- --watch=false --progress=false
 
