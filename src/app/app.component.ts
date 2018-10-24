@@ -28,7 +28,7 @@ export class App {
         this.filterValue = '';
         // console.log("Gonna filter" + this.items.length + "values");
         // this.filter();
-        this.title = 'Where Top Domain\s Live';
+        this.title = 'Where Top Domains Live';
     }
 
     ngOnInit() {
