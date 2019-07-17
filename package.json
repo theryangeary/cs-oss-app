@@ -28,7 +28,7 @@
         "@types/bingmaps": "0.0.1",
         "@types/googlemaps": "^3.30.15",
         "angular-maps": "^6.0.1",
-        "async": "^2.6.1",
+        "async": "^3.0.0",
         "bingmaps": "^2.0.3",
         "body-parser": "^1.18.3",
         "compression": "^1.7.3",
