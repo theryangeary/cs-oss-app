@@ -37,7 +37,7 @@
         "express": "^4.16.4",
         "font-awesome": "^4.7.0",
         "json-loader": "^0.5.7",
-        "rxjs": "6.1.0",
+        "rxjs": "6.5.3",
         "zone.js": "git://github.com/JiaLiPassion/zone.js#jasmine-dist"
     },
     "devDependencies": {
